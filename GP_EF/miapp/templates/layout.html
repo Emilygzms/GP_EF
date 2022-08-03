@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+
+            {% endblock %}
+            | UNTELS
+        </title>
+                {% load static %}
+                <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    </head>
+    <body>
+        <header>
+                <div id="logotipo">
+                    <img src="{% static 'images/LogoDJango.png' %}" />
+                </div>
+        </header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{% url 'inicio' %}"> Inicio</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'curso' %}"> Cursos</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'crearcurso' %}"> Crear Cursos</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'carrera' %}"> Carreras</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'crearcarrera' %}"> Crear Carreras</a>
+                    </li>
+        </ul>
+            </nav>
+            <div class="barra">
+                <span class="esquina-izquierda"></span>
+                <span class="relleno-barra"></span>
+                <span class="esquina-derecha"></span>
+            </div>
+            <div id="content">
+                <div class ="box">
+                    
+                    {% block content %}
+                        <strong> Contenido en layout (Padre) </strong>
+                    {% endblock %}
+                </div> 
+            </div>
+        <footer>
+            UNTELS - Lenguaje de Programación III &COPY; GP-EF - {% now "d/m/Y h:m:s" %}
+        </footer>
+    </body>
+    </html>

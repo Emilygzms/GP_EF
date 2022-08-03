@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{titulo}}
+{% endblock %}
+
+{% block content %}
+    <h1 class="title">{{titulo}}</h1>
+    <P> Mensaje: {{mensaje}} </P>
+    <p>Año: 2022</p>
+    <br>
+    <hr>
+    <br>
+    <h3><strong>{{encabezado}} Integrantes:</strong></h3>
+    <ul>
+        {% for estudiante in estudiantes %}
+            <li>{{forloop.counter}}.{{estudiante}}</li>
+        {% endfor %}
+    </ul>
+    <br>
+{% endblock %}
