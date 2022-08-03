@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{titulo}}
+{% endblock %}
+
+{% block content %}
+    <h1 class="title">Formulario Curso</h1>
+    <br>
+    <hr>
+    <br>
+    <form action="{% url 'save_curso' %}" method="POST">
+        {% csrf_token %}
+        <label for="codigo">Código</label>
+        <input type="text" name="codigo" />
+
+        <label for="nombre">Nombre </label>
+        <input type="text" name="nombre" />
+
+        <label for="hora">Horas </label>
+        <input type="text" name="hora" />
+
+        <label for="creditos">Crédito </label>
+        <input type="text" name="creditos" />
+
+        <label for="estado">Estado</label>
+        <select name="estado">
+            <option value="1"> Aprobado/ En curso </option>
+            <option value="0"> Pendiente/Desaprobado </option>
+        </select>
+
+
+        <input type="submit" value="Agregar" />
+        
+    </form>
+
+{% endblock %}

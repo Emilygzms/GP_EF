@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{titulo}}
+{% endblock %}
+
+{% block content %}
+    <h1 class="title">{{titulo}}</h1>
+    <br>
+    <ul>
+        {% for cur in curso %}
+            <li>
+                <h4>{{cur.id}} - {{cur.codigo}} - {{cur.nombre}}</h4> 
+                <span>Horas Académicas: {{cur.hora}}</span>
+                <br>
+                <span>Créditos: {{cur.creditos}}</span>
+                <br>
+                <span>Estado: </span>
+                {% if cur.estado %}
+                    <strong> Aprobado/ En curso </strong>
+                {% else %}
+                    <strong> Pendiente/Desaprobado </strong>
+                {% endif %}
+                
+            </li>
+            <a href="{% url 'eliminar_curso' id=cur.id %}">Eliminar</a>
+            <br>
+            <br>
+    
+        {% endfor %}
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message">
+                    {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </ul>
+{% endblock %}
